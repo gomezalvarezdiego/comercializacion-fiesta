@@ -15,5 +15,5 @@ webroot/index.php
 .project
 .settings
 index.php
-webroot/file/uploads/*
+webroot/uploads/*
 
