@@ -33,7 +33,7 @@ window.print();
 			<?php	
 					//echo $digitovers;
 				
-					echo 'Medellín, '.$fecha;
+					echo 'Medellín, ' .$fecha;
 					echo "</br>";
 					echo "</br>";
 					echo "</br>";

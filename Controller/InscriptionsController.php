@@ -1,6 +1,7 @@
 ﻿<?php
 App::uses('AppController', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
+App::uses('CakeTime', 'Utility');
 /**
  * Inscriptions Controller
  *
@@ -498,14 +499,21 @@ class InscriptionsController extends AppController {
 			return $this->redirect(array('controller' => 'Inscriptions', 'action' => 'option'));
 		}
 		
+		//Old code
 		$horas_diferencia= -5;
 		$tiempo=time() + ($horas_diferencia * 60 *60);
 		list($Mili, $bot) = explode(" ", microtime());
 		$DM=substr(strval($Mili),2,4);
 		$fecha = date('Y-m-d H:i:s:'. $DM,$tiempo);
 		$this->set('fecha',$fecha);
-			
-			
+		
+		//Se definen las horas de diferencia porque la hora se toma en UTC
+		
+		$fecha2 = CakeTime::format($tiempo, '%B %e de %Y. %I:%M %p');
+		$this->set('fecha2',$fecha2);
+		
+
+
 		$this->set('nitc',$nitc);
 		$this->set('ciudad',$ciudad);
 		$this->set('idcategorian',$idcategorian);
@@ -560,7 +568,7 @@ class InscriptionsController extends AppController {
 		$correoi=$this->Inscription->find('all', array('conditions'=>array('nit'=>$nitc)));
 		$this->set('correoi',$correoi);
 		$Email = new CakeEmail('gmail');
-		$Email->from(array('comercializacion@fiestadellibroylacultura.com' => 'Fiesta del Libro y la Cultura'));
+		$Email->from(array('inscripciones-comercializacion@fiestadellibroylacultura.com' => 'Fiesta del Libro y la Cultura'));
 		foreach ($correoi as $correoi):
 		$email_c = $correoi['Inscription']['representative_mail'];
 		$email_co=$correoi['Inscription']['contanct_mail'];
@@ -576,9 +584,9 @@ class InscriptionsController extends AppController {
 		$Email->subject('Lista de espera Fiesta del Libro y la cultura');
 		}
 		//$link='http://aplicaciones.medellin.co/reservasfiestadellibro/workshops/index_inscription/'.$usuario;
-		$mensaje1="\n\nMedellín,$fecha\n\n";
+		$mensaje1="\n\nMedellín, $fecha2 \n\n";
 		$mensaje30="\n\n\n\n\nSr(a)";
-		$mensaje31="\n\n $name_co";
+		$mensaje31="\n$name_co";
 		$mensaje11="\n\n $razon_social";
 		$mensaje2="\n$nitc";
 		$mensaje3="\n\n\nApreciado postulante";
@@ -588,14 +596,14 @@ class InscriptionsController extends AppController {
 		$mensaje5= "\n\nDe acuerdo a la convocatoria diligenciada anteriormente se asignarán citas para la adjudicación de stands, según su categoría y el orden de inscripción del formulario.";
 		$mensaje6= "\n\nEste documento es el comprobante de que su cita fue asignada de la siguiente manera:" ;
 		$mensaje7="\n\nFecha y hora de su cita: \n";
-		$mensaje71=$citacionn;
+		$mensaje71=CakeTime::format($citacionn, '%B %e de %Y. %I:%M %p');
 		$mensaje61="\n\nLugar: Oficina  de Los Eventos del Libro, Casa del Patrimonio, Carrera 50 No 59 – 06 en Prado, Centro.";
-		$mensaje72="\n\nSu cita será atendida por: Pablo López y Liliana Afanador";
+		$mensaje72="\n\nSu cita será atendida por: Nathalia Ortega";
 		$mensaje8="\n\nRecuerde adjuntar por este medio todos los documentos solicitados para hacer válida la asignación de su stand.";
-		$mensaje9="\n\n •	Cámara de comercio, renovada a 2016, con una vigencia de 30 días.";
+		$mensaje9="\n\n •	Cámara de comercio, renovada a 2015, con una vigencia de 30 días.";
 		$mensaje10="\n •	RUT (actualizado de 2013 en adelante)";
 		$mensaje11="\n •	Cédula representante legal";
-		$mensaje12="\n\nEsperamos contar con su presencia en la 10a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
+		$mensaje12="\n\nEsperamos contar con su presencia en la 9a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
 		$mensaje14="\n\n ";
 			
 		//no cita
@@ -605,11 +613,11 @@ class InscriptionsController extends AppController {
 		$mensaje54="\n\nAgradecemos su interés.";
 		//fin  de las dos citas
 		$mensaje15="\n\n Cordialmente";
-		$mensaje16="\n\n Pablo López Londoño";
-		$mensaje17="\n Coordinador Comercial Eventos del Libro";
+		$mensaje16="\n\n Nathalia Ortega Viana";
+		$mensaje17="\n Jefe Comercial Eventos del Libro 2014";
 		$mensaje18="\n comercializacion@fiestadellibroylacultura.com";
-		$mensaje19="\n Teléfono: (034) 322 09 97 – Ext. 109";
-		$mensaje20="\n Celular: 314 798 45 67";
+		$mensaje19="\n Teléfono: (034) 444 86 91 – Ext. 105";
+		$mensaje20="\n Celular: 321 759 84 22";
 		$mensaje21="\n\n ";
 			
 		if($citacionn!=''){
