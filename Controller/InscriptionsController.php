@@ -576,9 +576,9 @@ class InscriptionsController extends AppController {
 		$Email->subject('Lista de espera Fiesta del Libro y la cultura');
 		}
 		//$link='http://aplicaciones.medellin.co/reservasfiestadellibro/workshops/index_inscription/'.$usuario;
-		$mensaje1="\n\nMedellín, $fecha \n\n";
+		$mensaje1="\n\nMedellín,$fecha\n\n";
 		$mensaje30="\n\n\n\n\nSr(a)";
-		$mensaje31="\n$name_co";
+		$mensaje31="\n\n $name_co";
 		$mensaje11="\n\n $razon_social";
 		$mensaje2="\n$nitc";
 		$mensaje3="\n\n\nApreciado postulante";
@@ -590,12 +590,12 @@ class InscriptionsController extends AppController {
 		$mensaje7="\n\nFecha y hora de su cita: \n";
 		$mensaje71=$citacionn;
 		$mensaje61="\n\nLugar: Oficina  de Los Eventos del Libro, Casa del Patrimonio, Carrera 50 No 59 – 06 en Prado, Centro.";
-		$mensaje72="\n\nSu cita será atendida por: Nathalia Ortega";
+		$mensaje72="\n\nSu cita será atendida por: Pablo López y Liliana Afanador";
 		$mensaje8="\n\nRecuerde adjuntar por este medio todos los documentos solicitados para hacer válida la asignación de su stand.";
-		$mensaje9="\n\n •	Cámara de comercio, renovada a 2015, con una vigencia de 30 días.";
+		$mensaje9="\n\n •	Cámara de comercio, renovada a 2016, con una vigencia de 30 días.";
 		$mensaje10="\n •	RUT (actualizado de 2013 en adelante)";
 		$mensaje11="\n •	Cédula representante legal";
-		$mensaje12="\n\nEsperamos contar con su presencia en la 9a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
+		$mensaje12="\n\nEsperamos contar con su presencia en la 10a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
 		$mensaje14="\n\n ";
 			
 		//no cita
@@ -605,11 +605,11 @@ class InscriptionsController extends AppController {
 		$mensaje54="\n\nAgradecemos su interés.";
 		//fin  de las dos citas
 		$mensaje15="\n\n Cordialmente";
-		$mensaje16="\n\n Nathalia Ortega Viana";
-		$mensaje17="\n Jefe Comercial Eventos del Libro 2014";
+		$mensaje16="\n\n Pablo López Londoño";
+		$mensaje17="\n Coordinador Comercial Eventos del Libro";
 		$mensaje18="\n comercializacion@fiestadellibroylacultura.com";
-		$mensaje19="\n Teléfono: (034) 444 86 91 – Ext. 105";
-		$mensaje20="\n Celular: 321 759 84 22";
+		$mensaje19="\n Teléfono: (034) 322 09 97 – Ext. 109";
+		$mensaje20="\n Celular: 314 798 45 67";
 		$mensaje21="\n\n ";
 			
 		if($citacionn!=''){
