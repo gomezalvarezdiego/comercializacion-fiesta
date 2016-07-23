@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 App::uses('AppController', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
 App::uses('CakeTime', 'Utility');
@@ -586,9 +586,9 @@ class InscriptionsController extends AppController {
 		//$link='http://aplicaciones.medellin.co/reservasfiestadellibro/workshops/index_inscription/'.$usuario;
 		$mensaje1="\n\nMedellín, $fecha2 \n\n";
 		$mensaje30="\n\n\n\n\nSr(a)";
-		$mensaje31="\n$name_co";
-		$mensaje11="\n\n $razon_social";
-		$mensaje2="\n$nitc";
+		$mensaje31="\n$name_co\n";
+		$mensaje11="\n\n$razon_social";
+		$mensaje2="\n\n$nitc";
 		$mensaje3="\n\n\nApreciado postulante";
 		$mensaje4="\n\n\n\nAgradecemos su interés en hacer parte de la Fiesta del libro y la cultura, encuentro cultural de la ciudad organizado por la Secretaría de Cultura Ciudadana de la Alcaldía de Medellín.";
 		//condicion
@@ -598,7 +598,7 @@ class InscriptionsController extends AppController {
 		$mensaje7="\n\nFecha y hora de su cita: \n";
 		$mensaje71=CakeTime::format($citacionn, '%B %e de %Y. %I:%M %p');
 		$mensaje61="\n\nLugar: Oficina  de Los Eventos del Libro, Casa del Patrimonio, Carrera 50 No 59 – 06 en Prado, Centro.";
-		$mensaje72="\n\nSu cita será atendida por: Nathalia Ortega";
+		$mensaje72="\n\nSu cita será atendida por: Pablo López y Liliana Afanador";
 		$mensaje8="\n\nRecuerde adjuntar por este medio todos los documentos solicitados para hacer válida la asignación de su stand.";
 		$mensaje9="\n\n •	Cámara de comercio, renovada a 2016, con una vigencia de 30 días.";
 		$mensaje10="\n •	RUT (actualizado de 2013 en adelante)";
