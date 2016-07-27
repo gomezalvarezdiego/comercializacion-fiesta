@@ -259,6 +259,7 @@ class InscriptionsController extends AppController {
 		$fecha = date('Y-m-d H:i:s:'. $DM,$tiempo);
 		$this->set('fecha',$fecha);
 		
+		//Se recupera el id de la categoría
 		$idcategoria=$this->Inscription->query("select distinct id_category from category where category_name='$nombrecategoria'");
 		
 		foreach ($idcategoria as $idcategorias){
@@ -300,8 +301,9 @@ class InscriptionsController extends AppController {
 				return $this->redirect(array('controller' => 'Inscriptions', 'action' => 'add',$nombrecategoria));
 			}
 			else{
+				//Si todo está correcto se procede a guardar
 			if ($this->Inscription->save($this->request->data)) {
-				$nitn=$this->Inscription->query("update inscriptions set nit ='$nitc' where nit='$nit'");
+				$nitn=$this->Inscription->query("update inscriptions set nit ='$nitc', category_name='$nombrecategoria' where nit='$nit'");
 				$this->Session->setFlash(__('La información ha sido guardada y se le ha enviado un correo electrónico'));
 				//$nit= $this->request->data['Inscription']['nit'];
 				$ciudad= $this->request->data['Inscription']['representative_city'];
@@ -603,7 +605,7 @@ class InscriptionsController extends AppController {
 		$mensaje9="\n\n •	Cámara de comercio, renovada a 2016, con una vigencia de 30 días.";
 		$mensaje10="\n •	RUT (actualizado de 2013 en adelante)";
 		$mensaje11="\n •	Cédula representante legal";
-		$mensaje12="\n\nEsperamos contar con su presencia en la 9a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
+		$mensaje12="\n\nEsperamos contar con su presencia en la 10a Fiesta del libro y la cultura. Agradecemos su participación, colaboración y puntualidad en las citas. En caso de no asistir a su cita o incumplir el horario de esta, su cupo será liberado y se asignará a otro postulante.";
 		$mensaje14="\n\n ";
 			
 		//no cita

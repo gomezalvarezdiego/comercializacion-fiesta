@@ -68,7 +68,7 @@
 		<?php
 		if($category_name==''){ ?>
 			<td>Se encuentra en lista de espera</td>
-			<td></td>	
+			<td><?php echo h($inscription['Inscription']['category_name']); ?></td>	
 			<?php }?>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $inscription['Inscription']['nit'])); ?>
